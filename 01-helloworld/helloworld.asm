@@ -7,13 +7,13 @@ section .text
 
 _start:
 	; print to stdout (standard output)
-	mov rax, 1			; syscall id: write
-	mov rdi, 1			; file descriptor: stdout
-	mov rsi, message	; address offer
-	mov rdx, length		; number of bytes
+	mov rax, 1				; system call id: write
+	mov rdi, 1				; file descriptor: stdout
+	mov rsi, message		; address of buffer
+	mov rdx, length			; size of buffer
 	syscall
 
 	; exit program
-	mov rax, 60
-	mov rdi, 0
+	mov rax, 60				; syscall id: exit
+	mov rdi, 0				; exit code
 	syscall
