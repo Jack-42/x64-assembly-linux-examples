@@ -1,16 +1,22 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;																		          ;
+; This program writes "Hello World!" to standard output using Linux system calls. ;
+;																		          ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 %define SYS_WRITE 1
 %define SYS_EXIT 60
 %define STDOUT 1
+
+global _start				; make entry point visible to linker
 
 section .data
 	message db `Hello World!\n`
 	length equ $-message
 
 section .text
-	global _start			; define entry point
-
 _start:
-	; print to stdout (standard output)
+	; write to standard output
 	mov rax, SYS_WRITE		; system call id
 	mov rdi, STDOUT			; file descriptor
 	mov rsi, message		; address of buffer
