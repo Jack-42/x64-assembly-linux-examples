@@ -21,7 +21,7 @@ section .data
     greeting_length equ $-greeting
 
 section .bss
-    name resb MAX_NAME_LENGTH    ; reserve static memory for the name
+    name resb MAX_NAME_LENGTH       ; reserve static memory for name
 
 section .text
 _start:
@@ -38,6 +38,7 @@ _start:
     mov rsi, name                   ; address of buffer
     mov rdx, MAX_NAME_LENGTH        ; size of buffer
     syscall
+    push rax                        ; store result = number of bytes read
 
     ; print greeting
     mov rax, SYS_WRITE              ; system call id
@@ -50,7 +51,7 @@ _start:
     mov rax, SYS_WRITE              ; system call id
     mov rdi, STDOUT                 ; file descriptor
     mov rsi, name                   ; address of buffer
-    mov rdx, MAX_NAME_LENGTH        ; size of buffer
+    pop rdx                         ; size of buffer (result stored before)
     syscall
 
     ; exit program
