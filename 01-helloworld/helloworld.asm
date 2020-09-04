@@ -25,3 +25,4 @@ _start:
     mov rax, SYS_EXIT       ; system call id
     mov rdi, 0              ; exit code
     syscall
+
