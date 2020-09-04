@@ -4,5 +4,3 @@ all:
 
 clean:
 	rm helloworld-libc.o helloworld-libc
-
-	

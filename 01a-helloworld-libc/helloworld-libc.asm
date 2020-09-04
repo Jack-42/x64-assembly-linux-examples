@@ -17,4 +17,3 @@ main:
     call puts
 
     ret                         ; return back to C library wrapper
-
