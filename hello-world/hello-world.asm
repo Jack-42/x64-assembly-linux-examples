@@ -1,12 +1,13 @@
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; This program writes "Hello World!" to standard output using Linux system calls. ;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; This program writes "Hello World!" to standard output.    ;
+; It uses Linux system calls.                               ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 %define SYS_WRITE 1
 %define SYS_EXIT 60
 %define STDOUT 1
 
-global _start               ; make entry point visible to linker
+global _start       ; make entry point visible to linker
 
 section .data
     message db `Hello World!\n`
@@ -25,4 +26,3 @@ _start:
     mov rax, SYS_EXIT       ; system call id
     mov rdi, 0              ; exit code
     syscall
-
