@@ -1,5 +1,5 @@
 all:
-	nasm -f elf64 hello-world-libc.asm
+	nasm -f elf64 hello-world-libc.asm -o hello-world-libc.o
 	gcc hello-world-libc.o -o hello-world-libc
 
 clean:
