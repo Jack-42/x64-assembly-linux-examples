@@ -39,7 +39,6 @@ main:
     mov rsi, name           ; first param
     call printf
 
-
     ; exit program, return back to C library wrapper
     mov eax, 0              ; error code: 0 for success
     ret
