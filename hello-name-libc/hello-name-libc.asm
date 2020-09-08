@@ -1,9 +1,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; This program asks the user for their name and greets them.    ;
-; It uses the C standard library                                ;
+; It uses the C standard library.                               ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-%define STDIN 0
 
 %define MAX_NAME_LENGTH 32
 
