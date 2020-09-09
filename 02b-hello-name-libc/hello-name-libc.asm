@@ -38,5 +38,5 @@ main:
     call printf
 
     ; exit program, return back to C library wrapper
-    mov eax, 0              ; error code: 0 for success
+    mov eax, 0              ; exit code: 0 for success
     ret
