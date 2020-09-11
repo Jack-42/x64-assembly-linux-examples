@@ -53,9 +53,9 @@ main:
     mov [sum], rax              ; store sum
 
     ; print sum
-    mov rax, 0
-    mov rdi, message_sum
-    mov rsi, [sum]
+    mov rax, 0                  ; no vector registers
+    mov rdi, message_sum        ; address of format string
+    mov rsi, [sum]              ; first param
     call printf
 
     ; exit program
