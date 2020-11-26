@@ -24,6 +24,8 @@ section .bss
 
 section .text
 main:
+    sub rsp, 8                  ; align the stack
+
     ; ask user for first number
     mov rax, 0                  ; no vector registers
     mov rdi, message_number1    ; address of format string
@@ -60,4 +62,5 @@ main:
 
     ; exit program
     mov eax, 0                  ; exit code: 0 for success
+    add rsp, 8                  ; align the stack
     ret
