@@ -22,6 +22,8 @@ section .bss
 
 section .text
 main:
+    sub rsp, 8              ; align the stack
+
     ; ask user for name
     mov rdi, question       ; address of string
     call puts
@@ -39,4 +41,5 @@ main:
 
     ; exit program, return back to C library wrapper
     mov eax, 0              ; exit code: 0 for success
+    add rsp, 8              ; align the stack
     ret

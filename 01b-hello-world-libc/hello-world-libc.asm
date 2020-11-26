@@ -11,10 +11,13 @@ section .data
 
 section .text
 main:
+    sub rsp, 8                  ; align the stack
+
     ; write to standard output
     mov rdi, message            ; address of string
     call puts
 
     ; exit program, return back to C library wrapper
     mov eax, 0                  ; exit code: 0 for success
+    add rsp, 8                  ; align the stack
     ret
