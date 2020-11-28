@@ -3,4 +3,4 @@ all:
 	ld hello-world.o -o hello-world
 
 clean:
-	rm hello-world.o hello-world
+	rm -f hello-world.o hello-world

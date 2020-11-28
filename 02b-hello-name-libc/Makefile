@@ -3,4 +3,4 @@ all:
 	gcc -no-pie hello-name-libc.o -o hello-name-libc
 
 clean:
-	rm hello-name-libc.o hello-name-libc
+	rm -f hello-name-libc.o hello-name-libc

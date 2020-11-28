@@ -3,4 +3,4 @@ all:
 	gcc -no-pie add-two-numbers.o -o add-two-numbers
 
 clean:
-	rm add-two-numbers.o add-two-numbers
+	rm -f add-two-numbers.o add-two-numbers
