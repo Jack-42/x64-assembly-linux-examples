@@ -1,4 +1,4 @@
-APP_NAME = hello-name
+APP_NAME = hello-name-syscall
 
 all:
 	mkdir -p build
