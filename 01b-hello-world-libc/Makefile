@@ -1,7 +1,9 @@
+APP_NAME = hello-world-libc
+
 all:
 	mkdir -p build
-	nasm -f elf64 hello-world-libc.asm -o build/hello-world-libc.o
-	gcc -no-pie build/hello-world-libc.o -o build/hello-world-libc
+	nasm -f elf64 $(APP_NAME).asm -o build/$(APP_NAME).o
+	gcc -no-pie build/$(APP_NAME).o -o build/$(APP_NAME)
 
 clean:
 	rm -rf build

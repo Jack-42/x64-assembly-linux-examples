@@ -1,7 +1,9 @@
+APP_NAME = add-two-numbers
+
 all:
 	mkdir -p build
-	nasm -f elf64 add-two-numbers.asm -o build/add-two-numbers.o
-	gcc -no-pie build/add-two-numbers.o -o build/add-two-numbers
+	nasm -f elf64 $(APP_NAME).asm -o build/$(APP_NAME).o
+	gcc -no-pie build/$(APP_NAME).o -o build/$(APP_NAME)
 
 clean:
 	rm -rf build
