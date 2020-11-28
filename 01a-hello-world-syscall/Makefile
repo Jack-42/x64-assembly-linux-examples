@@ -1,7 +1,7 @@
 all:
 	mkdir -p build
-	nasm -f elf64 hello-world.asm -o build/hello-world.o
-	ld build/hello-world.o -o build/hello-world
+	nasm -f elf64 hello-world-syscall.asm -o build/hello-world-syscall.o
+	ld build/hello-world-syscall.o -o build/hello-world-syscall
 
 clean:
 	rm -rf build
