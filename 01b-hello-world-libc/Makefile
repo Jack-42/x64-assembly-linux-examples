@@ -1,6 +1,7 @@
 all:
-	nasm -f elf64 hello-world-libc.asm -o hello-world-libc.o
-	gcc -no-pie hello-world-libc.o -o hello-world-libc
+	mkdir -p build
+	nasm -f elf64 hello-world-libc.asm -o build/hello-world-libc.o
+	gcc -no-pie build/hello-world-libc.o -o build/hello-world-libc
 
 clean:
-	rm -f hello-world-libc.o hello-world-libc
+	rm -rf build

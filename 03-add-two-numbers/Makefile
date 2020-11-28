@@ -1,6 +1,7 @@
 all:
-	nasm -f elf64 add-two-numbers.asm -o add-two-numbers.o
-	gcc -no-pie add-two-numbers.o -o add-two-numbers
+	mkdir -p build
+	nasm -f elf64 add-two-numbers.asm -o build/add-two-numbers.o
+	gcc -no-pie build/add-two-numbers.o -o build/add-two-numbers
 
 clean:
-	rm -f add-two-numbers.o add-two-numbers
+	rm -rf build

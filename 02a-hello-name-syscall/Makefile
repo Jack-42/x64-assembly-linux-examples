@@ -1,6 +1,7 @@
 all:
-	nasm -f elf64 hello-name.asm -o hello-name.o
-	ld hello-name.o -o hello-name
+	mkdir -p build
+	nasm -f elf64 hello-name.asm -o build/hello-name.o
+	ld build/hello-name.o -o build/hello-name
 
 clean:
-	rm -f hello-name.o hello-name
+	rm -rf build
