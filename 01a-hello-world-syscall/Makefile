@@ -1,7 +1,9 @@
+APP_NAME = hello-world-syscall
+
 all:
 	mkdir -p build
-	nasm -f elf64 hello-world-syscall.asm -o build/hello-world-syscall.o
-	ld build/hello-world-syscall.o -o build/hello-world-syscall
+	nasm -f elf64 $(APP_NAME).asm -o build/$(APP_NAME).o
+	ld build/$(APP_NAME).o -o build/$(APP_NAME)
 
 clean:
 	rm -rf build

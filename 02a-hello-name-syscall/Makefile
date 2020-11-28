@@ -1,7 +1,9 @@
+APP_NAME = hello-name
+
 all:
 	mkdir -p build
-	nasm -f elf64 hello-name.asm -o build/hello-name.o
-	ld build/hello-name.o -o build/hello-name
+	nasm -f elf64 $(APP_NAME).asm -o build/$(APP_NAME).o
+	ld build/$(APP_NAME).o -o build/$(APP_NAME)
 
 clean:
 	rm -rf build
