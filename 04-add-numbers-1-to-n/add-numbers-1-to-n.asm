@@ -45,10 +45,11 @@ add_loop_check:
     cmp rcx, [n]                    
     jg add_loop_exit
 add_loop_body:
-    add [sum], rcx                  ; add counter to sum
+    add rax, rcx                    ; add counter to sum
     inc ecx                         ; increment counter
     jmp add_loop_check              ; continue loop
 add_loop_exit:
+    mov [sum], rax                  ; store sum
 
     ; print sum
     mov rax, 0                      ; no vector registers
