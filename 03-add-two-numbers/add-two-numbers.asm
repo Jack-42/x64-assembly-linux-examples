@@ -50,8 +50,7 @@ main:
 
     ; add numbers
     mov rax, [number1]          ; load first number
-    mov rbx, [number2]          ; load second number
-    add rax, rbx                ; add numbers
+    add rax, [number2]          ; add second number
     mov [sum], rax              ; store sum
 
     ; print sum
