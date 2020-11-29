@@ -1,7 +1,7 @@
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::::::::::::::::::::;;
-; This program asks the user for two numbers, adds them and prints the result.  ;
-; It uses the C standard library.                                               ;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::::::::::::::::::::;
+; This program asks the user for two numbers, adds them and prints the result.  
+; It uses functions of the C standard library.                                               
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ; declare entry point for linker
 global main
@@ -13,9 +13,9 @@ extern scanf
 section .data
     message_number1 db `Enter first number: \0`     ; zero-terminated string
     message_number2 db `Enter second number: \0`    ; zero-terminated string
-    message_sum db `The sum is %d.\n\0`             ; zero-terminated format string
+    message_sum db `The sum is %lld.\n\0`           ; zero-terminated format string
 
-    format_number db `%d\0`    ; zero-terminated format string
+    format_number db `%lld\0`    ; zero-terminated format string
 
 section .bss
     number1 resq 1      ; reserve static memory for first number (64-bit)
