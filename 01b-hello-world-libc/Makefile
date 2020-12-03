@@ -1,7 +1,7 @@
 APP_NAME = hello-world-libc
 
 all: pre-build $(APP_NAME).o
-	gcc -no-pie -O0 build/$(APP_NAME).o -o build/$(APP_NAME)
+	gcc -m64 -no-pie -O0 build/$(APP_NAME).o -o build/$(APP_NAME)
 	
 pre-build:
 	mkdir -p build
