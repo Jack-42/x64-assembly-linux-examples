@@ -18,6 +18,6 @@ main:
     call puts
 
     ; exit program, return back to C library wrapper
-    mov eax, 0                  ; exit code: 0 for success
+    mov rax, 0                  ; exit code: 0 for success
     add rsp, 8                  ; align the stack
     ret
