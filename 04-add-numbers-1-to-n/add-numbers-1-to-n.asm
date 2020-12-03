@@ -46,7 +46,7 @@ add_loop_check:
     jg add_loop_exit
 add_loop_body:
     add rax, rcx                    ; add counter to sum
-    inc ecx                         ; increment counter
+    inc rcx                         ; increment counter
     jmp add_loop_check              ; continue loop
 add_loop_exit:
     mov [sum], rax                  ; store sum
