@@ -11,20 +11,21 @@ extern printf
 extern scanf
 
 section .data
-    message_number1 db `Enter first number: \0`     ; zero-terminated string
-    message_number2 db `Enter second number: \0`    ; zero-terminated string
-    message_sum db `The sum is %lld.\n\0`           ; zero-terminated format string
+    message_number1 db `Enter first number: \0`
+    message_number2 db `Enter second number: \0`
+    message_sum db `The sum is %lld.\n\0`
 
-    format_number db `%lld\0`    ; zero-terminated format string
+    format_number db `%lld\0`
 
 section .bss
-    number1 resq 1      ; reserve static memory for first number (64-bit)
-    number2 resq 1      ; reserve static memory for second number (64-bit)
-    sum resq 1          ; reserve static memory for sum (64-bit)
+    number1 resq 1
+    number2 resq 1
+    sum resq 1
 
 section .text
 main:
-    sub rsp, 8                  ; align the stack
+    ; align the stack
+    sub rsp, 8
 
     ; ask user for first number
     mov rax, 0                  ; no vector registers
@@ -59,7 +60,9 @@ main:
     mov rsi, [sum]              ; first param
     call printf
 
+    ; align the stack
+    add rsp, 8
+
     ; exit program
     mov rax, 0                  ; exit code: 0 for success
-    add rsp, 8                  ; align the stack
     ret

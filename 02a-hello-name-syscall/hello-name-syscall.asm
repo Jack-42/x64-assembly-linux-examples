@@ -1,7 +1,7 @@
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; This program asks the user for their name and greets them.      ;
-; It uses Linux system calls.                                     ;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; This program asks the user for their name and greets them.
+; It uses Linux system calls.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 %define SYS_READ 0
 %define SYS_WRITE 1
@@ -12,7 +12,8 @@
 
 %define MAX_NAME_LENGTH 32
 
-global _start   ; make entry point visible to linker
+; declare entry point for linker
+global _start
 
 section .data
     question db `What is your name?\n`
@@ -21,7 +22,7 @@ section .data
     greeting_length equ $-greeting
 
 section .bss
-    name resb MAX_NAME_LENGTH       ; reserve static memory for name
+    name resb MAX_NAME_LENGTH
 
 section .text
 _start:
@@ -56,5 +57,5 @@ _start:
 
     ; exit program
     mov rax, SYS_EXIT               ; system call id
-    mov rdi, 0                      ; exit code
+    mov rdi, 0                      ; exit code: 0 for success
     syscall

@@ -1,11 +1,11 @@
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; This program asks the user for their name and greets them.    ;
-; It uses the C standard library.                               ;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; This program asks the user for their name and greets them.
+; It uses functions of the C standard library.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 %define MAX_NAME_LENGTH 32
 
-; declare entry point for linker, this is called by the C library startup code
+; declare entry point for linker
 global main
 
 ; declare C library functions
@@ -14,32 +14,35 @@ extern gets
 extern printf
 
 section .data
-    question db `What is your name?\0`      ; zero-terminated string
-    greeting db `Hello, %s!\n\0`            ; zero-terminated string with format specifier
+    question db `What is your name?\0`
+    greeting db `Hello, %s!\n\0`
 
 section .bss
-    name resb MAX_NAME_LENGTH               ; reserve static memory for name
+    name resb MAX_NAME_LENGTH
 
 section .text
 main:
-    sub rsp, 8              ; align the stack
+    ; align the stack
+    sub rsp, 8
 
     ; ask user for name
     mov rdi, question       ; address of string
     call puts
 
     ; read name
-    ; TODO: gets is unsafe, may lead to buffer overflow
+    ; TODO: gets is unsafe, might lead to buffer overflow
     mov rdi, name           ; address of buffer
     call gets
 
     ; print greeting
-    mov rax, 0              ; no vector (xmm) registers
+    mov rax, 0              ; no vector registers
     mov rdi, greeting       ; address of format string
     mov rsi, name           ; first param
     call printf
 
-    ; exit program, return back to C library wrapper
+    ; align the stack
+    add rsp, 8
+
+    ; exit program
     mov rax, 0              ; exit code: 0 for success
-    add rsp, 8              ; align the stack
     ret

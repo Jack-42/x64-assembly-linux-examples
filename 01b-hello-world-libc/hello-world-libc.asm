@@ -1,23 +1,29 @@
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; This program writes "Hello World!" to standard output.    ;
-; It uses the C standard library.                           ;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; This program writes "Hello World!" to standard output.
+; It uses functions of the C standard library.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-global main         ; make entry point visible to linker, this is called by the C library startup code
-extern puts         ; declare C library function
+; declare entry point for linker
+global main
+
+; declare C library functions
+extern puts
 
 section .data
-    message db `Hello World!\0`     ; zero-terminated string
+    message db `Hello World!\0`
 
 section .text
 main:
-    sub rsp, 8                  ; align the stack
+    ; align the stack
+    sub rsp, 8
 
     ; write to standard output
     mov rdi, message            ; address of string
     call puts
 
-    ; exit program, return back to C library wrapper
+    ; align the stack
+    add rsp, 8
+
+    ; exit program
     mov rax, 0                  ; exit code: 0 for success
-    add rsp, 8                  ; align the stack
     ret
